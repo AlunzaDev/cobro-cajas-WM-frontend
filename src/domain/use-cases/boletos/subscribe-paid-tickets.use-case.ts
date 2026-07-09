@@ -1,4 +1,4 @@
-import type { PaidTicketLiveEvent } from '../../entities/boletos/paid-ticket.entity'
+import type { PaidTicketLiveEvent, PaidTicketsRealtimeStatus } from '../../entities/boletos/paid-ticket.entity'
 import type { PaidTicketRepository } from '../../repositories/boletos/paid-ticket.repository'
 
 export class SubscribePaidTicketsUseCase {
@@ -8,7 +8,10 @@ export class SubscribePaidTicketsUseCase {
     this.repository = repository
   }
 
-  execute(onEvent: (event: PaidTicketLiveEvent) => void): () => void {
-    return this.repository.subscribeToPaidTickets(onEvent)
+  execute(
+    onEvent: (event: PaidTicketLiveEvent) => void,
+    onStatus?: (status: PaidTicketsRealtimeStatus) => void,
+  ): () => void {
+    return this.repository.subscribeToPaidTickets(onEvent, onStatus)
   }
 }

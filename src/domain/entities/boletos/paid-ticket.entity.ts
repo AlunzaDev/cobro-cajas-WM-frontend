@@ -63,3 +63,10 @@ export interface PaidTicketLiveEvent {
   ticket: PaidTicketEntity
   receivedAt: string
 }
+
+export interface PaidTicketsRealtimeStatus {
+  enabled: boolean
+  room: string
+  timestamp?: number
+  connected: boolean
+}

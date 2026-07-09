@@ -1,0 +1,118 @@
+.filter-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 15, 28, 0.48);
+  backdrop-filter: blur(4px);
+  z-index: 9998;
+  animation: filter-sidebar-fade-in 180ms ease-out;
+}
+
+.filter-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(380px, 100vw);
+  height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: #f7f9fc;
+  border-left: 1px solid #dbe3ef;
+  box-shadow: -18px 0 40px rgba(15, 23, 42, 0.16);
+  z-index: 9999;
+  animation: filter-sidebar-slide-in 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.filter-sidebar__header,
+.filter-sidebar__footer {
+  padding: 20px;
+  background: #ffffff;
+}
+
+.filter-sidebar__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #e8eef5;
+}
+
+.filter-sidebar__header p {
+  margin: 0 0 6px;
+  color: #607286;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.filter-sidebar__header h2 {
+  margin: 0;
+  color: #101722;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.filter-sidebar__header button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #d7dfeb;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #314356;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.filter-sidebar__body {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.filter-sidebar__footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-top: 1px solid #e8eef5;
+}
+
+.filter-sidebar__footer button {
+  min-height: 46px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.filter-sidebar__ghost {
+  border: 1px solid #d7dfeb;
+  background: #ffffff;
+  color: #314356;
+}
+
+.filter-sidebar__primary {
+  border: 1px solid #1f5eff;
+  background: linear-gradient(135deg, #1f5eff, #4b7cff);
+  color: #ffffff;
+}
+
+@keyframes filter-sidebar-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes filter-sidebar-slide-in {
+  from {
+    opacity: 0;
+    transform: translate3d(28px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
